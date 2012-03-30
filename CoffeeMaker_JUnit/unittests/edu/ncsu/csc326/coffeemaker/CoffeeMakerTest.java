@@ -40,7 +40,7 @@ public class CoffeeMakerTest extends TestCase {
 		
 		//Set up for r3
 		r3 = new Recipe();
-		r3.setName("Latte");
+		r3.setName("LatteMacchiato");
 		r3.setAmtChocolate("0");
 		r3.setAmtCoffee("3");
 		r3.setAmtMilk("3");
@@ -81,9 +81,9 @@ public class CoffeeMakerTest extends TestCase {
 		assertEquals(25, cm.makeCoffee(0, 75));
 	}
 	
-	//Eigene Tests
+	//TID_1 Prüfen ob das Hinzufügen von Rezepten funkzioniert
 	public void testAddRecipe() {
-		
+		assertTrue(cm.addRecipe(r1));
 	}
 	
 	public void testDeleteRecipe() {
