@@ -1,17 +1,9 @@
 package edu.ncsu.csc326.coffeemaker;
 
-import org.junit.Test;
-
 import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
 import junit.framework.TestCase;
 
-/**
- * 
- * @author Sarah Heckman
- *
- * Unit tests for CoffeeMaker class.
- */
-public class CoffeeMakerTest extends TestCase {
+public class PurchaseBeverageTest extends TestCase {
 	
 	private CoffeeMaker cm;
 	private Recipe r1;
@@ -62,25 +54,28 @@ public class CoffeeMakerTest extends TestCase {
 		super.setUp();
 	}
 
-	public void testAddInventory() {
-		try {
-			cm.addInventory("4","7","0","9");
-		} catch (InventoryException e) {
-			fail("InventoryException should not be thrown");
-		}
+	//TID_19 Prüfen ob "nicht genug Geld" akzeptiert wird
+	public void testPurchaseBeverageNotEnoughMoney() {
+		
 	}
 	
-	public void testAddInventoryException() {
-		try {
-			cm.addInventory("4", "-1", "asdf", "3");
-			fail("InventoryException should be thrown");
-		} catch (InventoryException e) {
-			//success if thrown
-		}
+	//TID_20 Prüfen ob Rückgeld zurückgegeben wird
+	public void testPurchaseBeverageTooManyMoney() {
+
 	}
 	
-	public void testMakeCoffee() {
-		cm.addRecipe(r1);
-		assertEquals(25, cm.makeCoffee(0, 75));
-	}	
+	//TID_21 Prüfen ob "passend" akzeptiert wird
+	public void testPurchaseBeverageNeededMoney() {
+
+	}
+	
+	//TID_22 Prüfen ob "genug Geld und genug Inventar" akzeptiert wird
+	public void testPurchaseBeverageNeededMoneyEnoughInventary() {
+
+	}
+	
+	//TID_23 Prüfen ob "genug Geld aber nicht genug Inventar" akzeptiert wird
+	public void testPurchaseBeverageNeededMoneyNotEnoughInventary() {
+
+	}
 }
