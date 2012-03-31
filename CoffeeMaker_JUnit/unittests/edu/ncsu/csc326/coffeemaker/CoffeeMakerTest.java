@@ -1,10 +1,8 @@
 package edu.ncsu.csc326.coffeemaker;
 
-import org.junit.Test;
-
+import junit.framework.TestCase;
 import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
 import edu.ncsu.csc326.coffeemaker.exceptions.RecipeException;
-import junit.framework.TestCase;
 
 /**
  * 
@@ -90,7 +88,7 @@ public class CoffeeMakerTest extends TestCase {
 	}
 	
 	public void testAddExistingRecipe() {
-		assertTrue(cm.addRecipe(r1));
+		cm.addRecipe(r1);
 		//TID_4 Prüfen ob das Hinzufügen des gleichen Rezepts
 		//(Coffee)funkzioniert
 		assertFalse(cm.addRecipe(r1));
@@ -123,8 +121,8 @@ public class CoffeeMakerTest extends TestCase {
 		}
 	}
 	
-	// TID_9 Prüfen ob das Editieren der Rezepte funktioniert
 	public void testEditRecipe() {
+		// TID_9 Prüfen ob das Editieren der Rezepte funktioniert
 		cm.addRecipe(r1);
 		assertEquals(r2.getName(),cm.editRecipe(0, r2));
 		// TID_10 Prüfen ob das Editieren der nicht vorhandener
@@ -132,15 +130,15 @@ public class CoffeeMakerTest extends TestCase {
 		assertNull(cm.editRecipe(2, r2));
 	}
 
-	// TID_11 Prüfen ob das Editieren des Namens der
-	// Rezepte funktioniert
 	public void testEditRecipeName() {
+		// TID_11 Prüfen ob das Editieren des Namens der
+		// Rezepte funktioniert
 		cm.addRecipe(r1);
 		assertNull(cm.editRecipe(0, r3));
 	}
 	
-	// TID_12 Prüfen ob das Löschen der Rezepte funktioniert
 	public void testDeleteRecipe() {
+		// TID_12 Prüfen ob das Löschen der Rezepte funktioniert
 		cm.addRecipe(r1);
 		assertEquals(r1.getName(),cm.deleteRecipe(0));
 		// TID_13 Prüfen ob das Löschen der nicht vorhandener
@@ -149,8 +147,8 @@ public class CoffeeMakerTest extends TestCase {
 	}
 	
 
-	//TID_14 Prüfen ob das Auffüllen mit richtigen Mengen funktioniert
 	public void testAddInventory() {
+		//TID_14 Prüfen ob das Auffüllen mit richtigen Mengen funktioniert
 		try {
 			cm.addInventory("4","7","0","9");
 		} catch (InventoryException e) {
@@ -158,8 +156,8 @@ public class CoffeeMakerTest extends TestCase {
 		}
 	}
 	
-	//TID_15 Prüfen ob das Auffüllen mit negativen Mengen funktioniert
 	public void testAddInventoryNegativeAmount() {
+		//TID_15 Prüfen ob das Auffüllen mit negativen Mengen funktioniert
 		try {
 			cm.addInventory("-4","7","0","9");
 			cm.addInventory("4","-7","0","9");
@@ -170,8 +168,8 @@ public class CoffeeMakerTest extends TestCase {
 		}
 	}
 	
-	//TID_16 Prüfen ob das Auffüllen mit string als Mengen funktioniert
 	public void testAddInventoryWrongTypeAmount() {
+		//TID_16 Prüfen ob das Auffüllen mit string als Mengen funktioniert
 		try {
 			cm.addInventory("vier","7","0","9");
 			fail("Units of coffee must be a positive integer");
@@ -185,13 +183,13 @@ public class CoffeeMakerTest extends TestCase {
 		}
 	}
 	
-	//TID_17 Prüfen ob die Ausgangsdaten des Inventars stimmen
 	public void testCheckInventory() {
+		//TID_17 Prüfen ob die Ausgangsdaten des Inventars stimmen
 		assertEquals("Coffee: 15\nMilk: 15\nSugar: 15\nChocolate: 15\n", cm.checkInventory());
 	}
 	
-	//TID_18 Prüfen ob die Inventarmengen sich erhöhen
 	public void testCheckInventoryIncrement() {
+		//TID_18 Prüfen ob die Inventarmengen sich erhöhen
 		try {
 			cm.addInventory("1","0","0","0");
 			assertEquals("Coffee: 16\nMilk: 15\nSugar: 15\nChocolate: 15\n", cm.checkInventory());
@@ -206,26 +204,26 @@ public class CoffeeMakerTest extends TestCase {
 		}
 	}
 	
-	//TID_19 Prüfen ob "nicht genug Geld" akzeptiert wird
 	public void testPurchaseBeverageNotEnoughMoney() {
+		//TID_19 Prüfen ob "nicht genug Geld" akzeptiert wird
 		cm.addRecipe(r1);
 		assertEquals(49,cm.makeCoffee(0, 49));
 	}
 	
-	//TID_20 Prüfen ob Rückgeld zurückgegeben wird
 	public void testPurchaseBeverageTooManyMoney() {
+		//TID_20 Prüfen ob Rückgeld zurückgegeben wird
 		cm.addRecipe(r1);
 		assertEquals(50,cm.makeCoffee(0, 100));
 	}
 	
-	//TID_21 Prüfen ob "passend" akzeptiert wird
 	public void testPurchaseBeverageNeededMoney() {
+		//TID_21 Prüfen ob "passend" akzeptiert wird
 		cm.addRecipe(r1);
 		assertEquals(0,cm.makeCoffee(0, 50));		
 	}
 	
-	//TID_22 Prüfen ob "genug Geld aber nicht genug Inventar" akzeptiert wird
 	public void testPurchaseBeverageNeededMoneyNotEnoughInventary() {
+		//TID_22 Prüfen ob "genug Geld aber nicht genug Inventar" akzeptiert wird
 		cm.addRecipe(r5);
 		cm.makeCoffee(0, 50);
 		assertEquals(100,cm.makeCoffee(0, 100));
