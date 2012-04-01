@@ -216,7 +216,7 @@ public class CoffeeMakerTest extends TestCase {
 		assertEquals(50,cm.makeCoffee(0, 100));
 	}
 	
-	public void testPurchaseBeverageNeededMoney() {
+	public void testPurchaseBeverageMatchingMoney() {
 		//TID_21 Prüfen ob "passend" akzeptiert wird
 		cm.addRecipe(r1);
 		assertEquals(0,cm.makeCoffee(0, 50));		
