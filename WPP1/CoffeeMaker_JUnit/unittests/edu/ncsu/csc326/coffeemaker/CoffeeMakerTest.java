@@ -186,14 +186,14 @@ public class CoffeeMakerTest extends TestCase {
 	public void testAddInventoryWrongTypeAmount() {
 		//TID_16 Prüfen ob das Auffüllen mit string als Mengen funktioniert
 		try {
-			cm.addInventory("vier","7","0","9");
-			fail("Units of coffee must be a positive integer");
-			cm.addInventory("4","sieben","0","9");
-			fail("Units of milk must be a positive integer");
-			cm.addInventory("4","7","null","9");
-			fail("Units of sugar must be a positive integer");
-			cm.addInventory("4","7","0","neun");
-			fail("Units of chocolate must be a positive integer");
+			cm.addInventory("not a number","7","0","9");
+			fail("Setzen von ungültigen String-Wert für Kaffee ist nicht fehlgeschlagen");
+			cm.addInventory("4","not a number","0","9");
+			fail("Setzen von ungültigen String-Wert für Milch ist nicht fehlgeschlagen");
+			cm.addInventory("4","7","not a number","9");
+			fail("Setzen von ungültigen String-Wert für Zucker ist nicht fehlgeschlagen");
+			cm.addInventory("4","7","0","not a number");
+			fail("Setzen von ungültigen String-Wert für Schokolade ist nicht fehlgeschlagen");
 		} catch (InventoryException e) {
 		}
 	}
@@ -215,7 +215,7 @@ public class CoffeeMakerTest extends TestCase {
 			cm.addInventory("0","0","0","1");
 			assertEquals("Coffee: 16\nMilk: 16\nSugar: 16\nChocolate: 16\n", cm.checkInventory());
 		} catch (InventoryException e) {
-			fail("InventoryException should not be thrown");
+			fail("InventoryException should not be thrown. Message: " + e.getMessage());
 		}
 	}
 
