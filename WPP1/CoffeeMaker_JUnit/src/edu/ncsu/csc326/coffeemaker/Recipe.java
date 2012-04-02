@@ -183,4 +183,13 @@ public class Recipe {
 		return true;
 	}
 
+	/**
+	 * Check if the current recipe is empty, that is,
+	 * no values have been assigned to it yet.
+	 * @return boolean
+	 */
+	public boolean isEmpty() {
+		return this.getName() == "";
+	}
+
 }
