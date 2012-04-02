@@ -1,5 +1,8 @@
 package edu.ncsu.csc326.coffeemaker;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import junit.framework.TestCase;
 import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
 import edu.ncsu.csc326.coffeemaker.exceptions.RecipeException;
@@ -74,6 +77,11 @@ public class CoffeeMakerTest extends TestCase {
 	public void testAddRecipe() {
 		//TID_1 Prüfen ob das Hinzufügen von Rezepten funkzioniert
 		assertTrue(cm.addRecipe(r1));
+
+		// Sicherstellen dass das Rezept hinzugefügt wurde
+		ArrayList<Recipe> list = new ArrayList<Recipe>();
+		Collections.addAll(list, cm.getRecipes());
+		assertTrue(list.contains(r1));
 	}
 
 	public void testAddRecipeMaximum() {
