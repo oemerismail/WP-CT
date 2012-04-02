@@ -1,0 +1,66 @@
+
+
+# Added by gemignore. Snippet 'Global/OSX'
+.DS_Store
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+
+# Added by gemignore. Snippet 'Java'
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+
+# Added by gemignore. Snippet 'Global/Eclipse'
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+
+# Added by gemignore. Snippet 'Global/Linux'
+.*
+!.gitignore
+*~
+
+# KDE
+.directory
+
+
+# Added by gemignore. Snippet 'Global/Windows'
+# Windows image file caches
+Thumbs.db 
+
+# Folder config file
+Desktop.ini
