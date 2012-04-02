@@ -100,6 +100,9 @@ public class CoffeeMakerTest extends TestCase {
 		//TID_4 Prüfen ob das Hinzufügen des gleichen Rezepts
 		//(Coffee)funkzioniert
 		assertFalse(cm.addRecipe(r1));
+	}
+
+	public void testAddEmptyRecipe() {
 		//TID_5 Prüfen ob das Hinzufügen eines leeren Rezepts
 		//funkzioniert
 		assertFalse(cm.addRecipe(new Recipe()));
