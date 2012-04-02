@@ -12,7 +12,7 @@ public class Recipe {
     private int amtMilk;
     private int amtSugar;
     private int amtChocolate;
-    
+
     /**
      * Creates a default recipe for the coffee maker.
      */
@@ -24,7 +24,7 @@ public class Recipe {
     	this.amtSugar = 0;
     	this.amtChocolate = 0;
     }
-    
+
     /**
 	 * @return   Returns the amtChocolate.
 	 */
@@ -148,8 +148,8 @@ public class Recipe {
 		} else {
 			throw new RecipeException("Price must be a positive integer");
 		}
-	} 
-    
+	}
+
     /**
      * Returns the name of the recipe.
      * @return String

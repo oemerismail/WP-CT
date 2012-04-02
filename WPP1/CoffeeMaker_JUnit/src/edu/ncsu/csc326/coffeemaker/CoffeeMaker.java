@@ -10,7 +10,7 @@ public class CoffeeMaker {
 	private static RecipeBook recipeBook;
 	/** Inventory of the coffee maker */
     private static Inventory inventory;
-	
+
     /**
      * Constructor for the coffee maker
      *
@@ -19,7 +19,7 @@ public class CoffeeMaker {
 	    recipeBook = new RecipeBook();
 		inventory = new Inventory();
 	}
-	
+
 	/**
 	 * Returns true if the recipe is added to the
 	 * list of recipes in the CoffeeMaker and false
@@ -30,18 +30,18 @@ public class CoffeeMaker {
 	public boolean addRecipe(Recipe r) {
 		return recipeBook.addRecipe(r);
 	}
-	
+
 	/**
 	 * Returns the name of the successfully deleted recipe
 	 * or null if the recipe cannot be deleted.
-	 * 
+	 *
 	 * @param recipeToDelete
 	 * @return String
 	 */
 	public String deleteRecipe(int recipeToDelete) {
 		return recipeBook.deleteRecipe(recipeToDelete);
 	}
-	
+
 	/**
 	 * Returns the name of the successfully edited recipe
 	 * or null if the recipe cannot be edited.
@@ -52,7 +52,7 @@ public class CoffeeMaker {
 	public String editRecipe(int recipeToEdit, Recipe r) {
 		return recipeBook.editRecipe(recipeToEdit, r);
 	}
-    
+
     /**
      * Returns true if inventory was successfully added
      * @param amtCoffee
@@ -67,7 +67,7 @@ public class CoffeeMaker {
 	    inventory.addSugar(amtSugar);
 	    inventory.addChocolate(amtChocolate);
     }
-    
+
     /**
      * Returns the inventory of the coffee maker
      * @return Inventory
@@ -75,7 +75,7 @@ public class CoffeeMaker {
     public synchronized String checkInventory() {
         return inventory.toString();
     }
-    
+
     /**
      * Returns the change of a user's beverage purchase, or
      * the user's money if the beverage cannot be made
@@ -85,7 +85,7 @@ public class CoffeeMaker {
      */
     public synchronized int makeCoffee(int recipeToPurchase, int amtPaid) {
         int change = 0;
-        
+
         if (getRecipes()[recipeToPurchase] == null) {
         	change = amtPaid;
         } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) {
@@ -97,7 +97,7 @@ public class CoffeeMaker {
         } else {
         	change = amtPaid;
         }
-        
+
         return change;
     }
 

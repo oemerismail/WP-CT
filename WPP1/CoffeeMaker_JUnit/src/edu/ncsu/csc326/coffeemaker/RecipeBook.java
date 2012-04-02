@@ -1,19 +1,19 @@
 package edu.ncsu.csc326.coffeemaker;
 
 public class RecipeBook {
-	
+
 	/** Array of recipes in coffee maker*/
 	private Recipe [] recipeArray;
 	/** Number of recipes in coffee maker */
-	private final int NUM_RECIPES = 4; 
-	
+	private final int NUM_RECIPES = 4;
+
 	/**
 	 * Default constructor for a RecipeBook.
 	 */
 	public RecipeBook() {
 		recipeArray = new Recipe[NUM_RECIPES];
 	}
-	
+
 	/**
 	 * Returns the recipe array.
 	 * @param r
@@ -22,9 +22,9 @@ public class RecipeBook {
 	public synchronized Recipe[] getRecipes() {
 		return recipeArray;
 	}
-	
+
 	public synchronized boolean addRecipe(Recipe r) {
-		//Assume recipe doesn't exist in the array until 
+		//Assume recipe doesn't exist in the array until
 		//find out otherwise
 		boolean exists = false;
 		//Check that recipe doesn't already exist in array
@@ -63,7 +63,7 @@ public class RecipeBook {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * Returns the name of the recipe edited at the position specified
 	 * and null if the recipe does not exist.

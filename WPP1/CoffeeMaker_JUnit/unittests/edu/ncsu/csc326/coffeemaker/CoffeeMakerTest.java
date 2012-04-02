@@ -5,13 +5,13 @@ import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
 import edu.ncsu.csc326.coffeemaker.exceptions.RecipeException;
 
 /**
- * 
+ *
  * @author Sarah Heckman
  *
  * Unit tests for CoffeeMaker class.
  */
 public class CoffeeMakerTest extends TestCase {
-	
+
 	private CoffeeMaker cm;
 	private Recipe r1;
 	private Recipe r2;
@@ -21,7 +21,7 @@ public class CoffeeMakerTest extends TestCase {
 
 	protected void setUp() throws Exception {
 		cm = new CoffeeMaker();
-		
+
 		//Set up for r1
 		r1 = new Recipe();
 		r1.setName("Coffee");
@@ -30,7 +30,7 @@ public class CoffeeMakerTest extends TestCase {
 		r1.setAmtMilk("1");
 		r1.setAmtSugar("1");
 		r1.setPrice("50");
-		
+
 		//Set up for r2
 		r2 = new Recipe();
 		r2.setName("Mocha");
@@ -39,7 +39,7 @@ public class CoffeeMakerTest extends TestCase {
 		r2.setAmtMilk("1");
 		r2.setAmtSugar("1");
 		r2.setPrice("75");
-		
+
 		//Set up for r3
 		r3 = new Recipe();
 		r3.setName("LatteMacchiato");
@@ -48,7 +48,7 @@ public class CoffeeMakerTest extends TestCase {
 		r3.setAmtMilk("3");
 		r3.setAmtSugar("1");
 		r3.setPrice("100");
-		
+
 		//Set up for r4
 		r4 = new Recipe();
 		r4.setName("Hot Chocolate");
@@ -57,7 +57,7 @@ public class CoffeeMakerTest extends TestCase {
 		r4.setAmtMilk("1");
 		r4.setAmtSugar("1");
 		r4.setPrice("65");
-		
+
 		//Set up for r5
 		r5 = new Recipe();
 		r5.setName("Test recipe");
@@ -66,16 +66,16 @@ public class CoffeeMakerTest extends TestCase {
 		r5.setAmtMilk("15");
 		r5.setAmtSugar("15");
 		r5.setPrice("50");
-		
-		
+
+
 		super.setUp();
 	}
-	
+
 	public void testAddRecipe() {
 		//TID_1 Prüfen ob das Hinzufügen von Rezepten funkzioniert
 		assertTrue(cm.addRecipe(r1));
 	}
-	
+
 	public void testAddRecipeMaximum() {
 		assertTrue(cm.addRecipe(r1));
 		assertTrue(cm.addRecipe(r2));
@@ -86,7 +86,7 @@ public class CoffeeMakerTest extends TestCase {
 		//Anzahl(3) von Rezepten hinaus funkzioniert
 		assertFalse(cm.addRecipe(r4));
 	}
-	
+
 	public void testAddExistingRecipe() {
 		cm.addRecipe(r1);
 		//TID_4 Prüfen ob das Hinzufügen des gleichen Rezepts
@@ -96,7 +96,7 @@ public class CoffeeMakerTest extends TestCase {
 		//funkzioniert
 		assertFalse(cm.addRecipe(new Recipe()));
 	}
-	
+
 	public void testAddRecipePrice(){
 		//TID_6 Prüfen ob das setzen eines Integer Preises
 		//funktioniert
@@ -120,7 +120,7 @@ public class CoffeeMakerTest extends TestCase {
 		} catch (RecipeException e){
 		}
 	}
-	
+
 	public void testEditRecipe() {
 		// TID_9 Prüfen ob das Editieren der Rezepte funktioniert
 		cm.addRecipe(r1);
@@ -136,7 +136,7 @@ public class CoffeeMakerTest extends TestCase {
 		cm.addRecipe(r1);
 		assertNull(cm.editRecipe(0, r3));
 	}
-	
+
 	public void testDeleteRecipe() {
 		// TID_12 Prüfen ob das Löschen der Rezepte funktioniert
 		cm.addRecipe(r1);
@@ -145,7 +145,7 @@ public class CoffeeMakerTest extends TestCase {
 		// Rezepte funktioniert
 		assertNull(cm.deleteRecipe(1));
 	}
-	
+
 
 	public void testAddInventory() {
 		//TID_14 Prüfen ob das Auffüllen mit richtigen Mengen funktioniert
@@ -155,7 +155,7 @@ public class CoffeeMakerTest extends TestCase {
 			fail("InventoryException should not be thrown");
 		}
 	}
-	
+
 	public void testAddInventoryNegativeAmount() {
 		//TID_15 Prüfen ob das Auffüllen mit negativen Mengen funktioniert
 		try {
@@ -167,7 +167,7 @@ public class CoffeeMakerTest extends TestCase {
 		} catch (InventoryException e) {
 		}
 	}
-	
+
 	public void testAddInventoryWrongTypeAmount() {
 		//TID_16 Prüfen ob das Auffüllen mit string als Mengen funktioniert
 		try {
@@ -182,12 +182,12 @@ public class CoffeeMakerTest extends TestCase {
 		} catch (InventoryException e) {
 		}
 	}
-	
+
 	public void testCheckInventory() {
 		//TID_17 Prüfen ob die Ausgangsdaten des Inventars stimmen
 		assertEquals("Coffee: 15\nMilk: 15\nSugar: 15\nChocolate: 15\n", cm.checkInventory());
 	}
-	
+
 	public void testCheckInventoryIncrement() {
 		//TID_18 Prüfen ob die Inventarmengen sich erhöhen
 		try {
@@ -203,25 +203,25 @@ public class CoffeeMakerTest extends TestCase {
 			fail("InventoryException should not be thrown");
 		}
 	}
-	
+
 	public void testPurchaseBeverageNotEnoughMoney() {
 		//TID_19 Prüfen ob "nicht genug Geld" akzeptiert wird
 		cm.addRecipe(r1);
 		assertEquals(49,cm.makeCoffee(0, 49));
 	}
-	
+
 	public void testPurchaseBeverageTooManyMoney() {
 		//TID_20 Prüfen ob Rückgeld zurückgegeben wird
 		cm.addRecipe(r1);
 		assertEquals(50,cm.makeCoffee(0, 100));
 	}
-	
+
 	public void testPurchaseBeverageMatchingMoney() {
 		//TID_21 Prüfen ob "passend" akzeptiert wird
 		cm.addRecipe(r1);
-		assertEquals(0,cm.makeCoffee(0, 50));		
+		assertEquals(0,cm.makeCoffee(0, 50));
 	}
-	
+
 	public void testPurchaseBeverageNeededMoneyNotEnoughInventary() {
 		//TID_22 Prüfen ob "genug Geld aber nicht genug Inventar" akzeptiert wird
 		cm.addRecipe(r5);

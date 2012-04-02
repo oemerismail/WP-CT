@@ -8,12 +8,12 @@ import edu.ncsu.csc326.coffeemaker.exceptions.InventoryException;
  * Inventory for the coffee maker
  */
 public class Inventory {
-    
+
     private static int coffee;
     private static int milk;
     private static int sugar;
     private static int chocolate;
-    
+
     /**
      * Creates a coffee maker inventory object and
      * fills each item in the inventory with 15 units.
@@ -24,16 +24,16 @@ public class Inventory {
     	setSugar(15);
     	setChocolate(15);
     }
-    
+
     /**
-     * Returns the current number of chocolate units in 
+     * Returns the current number of chocolate units in
      * the inventory.
      * @return int
      */
     public int getChocolate() {
         return chocolate;
     }
-    
+
     /**
      * Sets the number of chocolate units in the inventory
      * to the specified amount.
@@ -43,11 +43,11 @@ public class Inventory {
     	if(chocolate >= 0) {
     		Inventory.chocolate = chocolate;
     	}
-        
+
     }
-    
+
     /**
-     * Add the number of chocolate units in the inventory 
+     * Add the number of chocolate units in the inventory
      * to the current amount of chocolate units.
      * @param chocolate
      * @throws InventoryException
@@ -65,7 +65,7 @@ public class Inventory {
 			throw new InventoryException("Units of chocolate must be a positive integer");
 		}
     }
-    
+
     /**
      * Returns the current number of coffee units in
      * the inventory.
@@ -74,9 +74,9 @@ public class Inventory {
     public int getCoffee() {
         return coffee;
     }
-    
+
     /**
-     * Sets the number of coffee units in the inventory 
+     * Sets the number of coffee units in the inventory
      * to the specified amount.
      * @param coffee
      */
@@ -85,9 +85,9 @@ public class Inventory {
     		Inventory.coffee = coffee;
     	}
     }
-    
+
     /**
-     * Add the number of coffee units in the inventory 
+     * Add the number of coffee units in the inventory
      * to the current amount of coffee units.
      * @param coffee
      * @throws InventoryException
@@ -105,7 +105,7 @@ public class Inventory {
 			throw new InventoryException("Units of coffee must be a positive integer");
 		}
     }
-    
+
     /**
      * Returns the current number of milk units in
      * the inventory.
@@ -114,7 +114,7 @@ public class Inventory {
     public int getMilk() {
         return milk;
     }
-    
+
     /**
      * Sets the number of milk units in the inventory
      * to the specified amount.
@@ -125,9 +125,9 @@ public class Inventory {
     		Inventory.milk = milk;
     	}
     }
-    
+
     /**
-     * Add the number of milk units in the inventory 
+     * Add the number of milk units in the inventory
      * to the current amount of milk units.
      * @param milk
      * @throws InventoryException
@@ -145,16 +145,16 @@ public class Inventory {
 			throw new InventoryException("Units of milk must be a positive integer");
 		}
     }
-    
+
     /**
-     * Returns the current number of sugar units in 
+     * Returns the current number of sugar units in
      * the inventory.
      * @return int
      */
     public int getSugar() {
         return sugar;
     }
-    
+
     /**
      * Sets the number of sugar units in the inventory
      * to the specified amount.
@@ -165,9 +165,9 @@ public class Inventory {
     		Inventory.sugar = sugar;
     	}
     }
-    
+
     /**
-     * Add the number of sugar units in the inventory 
+     * Add the number of sugar units in the inventory
      * to the current amount of sugar units.
      * @param sugar
      * @throws InventoryException
@@ -185,7 +185,7 @@ public class Inventory {
 			throw new InventoryException("Units of sugar must be a positive integer");
 		}
     }
-    
+
     /**
      * Returns true if there are enough ingredients to make
      * the beverage.
@@ -208,11 +208,11 @@ public class Inventory {
         }
         return isEnough;
     }
-    
+
     /**
-     * Removes the ingredients used to make the specified 
+     * Removes the ingredients used to make the specified
      * recipe.  Assumes that the user has checked that there
-     * are enough ingredients to make 
+     * are enough ingredients to make
      * @param r
      */
     public synchronized boolean useIngredients(Recipe r) {
@@ -226,9 +226,9 @@ public class Inventory {
     		return false;
     	}
     }
-    
+
     /**
-     * Returns a string describing the current contents 
+     * Returns a string describing the current contents
      * of the inventory.
      * @return String
      */
