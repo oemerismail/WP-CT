@@ -17,6 +17,7 @@ public class CoffeeMakerTest extends TestCase {
 
 	private CoffeeMaker cm;
 	private Recipe r1;
+	private Recipe r1_edited;
 	private Recipe r2;
 	private Recipe r3;
 	private Recipe r4;
@@ -33,6 +34,15 @@ public class CoffeeMakerTest extends TestCase {
 		r1.setAmtMilk("1");
 		r1.setAmtSugar("1");
 		r1.setPrice("50");
+
+		//Set up for r1_edited
+		r1_edited = new Recipe();
+		r1_edited.setName(r1.getName());
+		r1_edited.setAmtChocolate("0");
+		r1_edited.setAmtCoffee("4");
+		r1_edited.setAmtMilk("2");
+		r1_edited.setAmtSugar("2");
+		r1_edited.setPrice("55");
 
 		//Set up for r2
 		r2 = new Recipe();
@@ -138,7 +148,7 @@ public class CoffeeMakerTest extends TestCase {
 	public void testEditRecipe() {
 		// TID_9 Prüfen ob das Editieren der Rezepte funktioniert
 		cm.addRecipe(r1);
-		assertEquals(r2.getName(),cm.editRecipe(0, r2));
+		assertEquals(r1.getName(),cm.editRecipe(0, r1_edited));
 
 		// TID_10 Prüfen ob das Editieren der nicht vorhandener
 		// Rezepte funktioniert
