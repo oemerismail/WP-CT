@@ -114,21 +114,24 @@ public class CoffeeMakerTest extends TestCase {
 		try {
 			r4.setPrice("4");
 		} catch (RecipeException e){
-			fail("Price must be a positive integer");
+			fail("Setzen des validen Preis-String '4' fehlgeschlagen");
 		}
-		//TID_7 Prüfen ob das setzen eines String Preises
-		//funktioniert
+
+		//TID_7 Prüfen ob das setzen eines ungültigen Preis-Wertes fehlschlägt
 		try {
-			r4.setPrice("vier");
-			fail("Price must be a positive integer");
+			r4.setPrice("blablub");
+			fail("Setzen eines invaliden Preis-Strings ist nicht fehlgeschlagen");
 		} catch (RecipeException e){
+			// Diese Exception wird erwartet
 		}
+
 		//TID_8 Prüfen ob das setzen eines negativen Preises
 		//funktioniert
 		try {
 			r4.setPrice("-4");
-			fail("Price must be a positive integer");
+			fail("Setzen eines negativen Preises schlug nicht fehl");
 		} catch (RecipeException e){
+			// Diese Exception wird erwartet
 		}
 	}
 
@@ -136,6 +139,7 @@ public class CoffeeMakerTest extends TestCase {
 		// TID_9 Prüfen ob das Editieren der Rezepte funktioniert
 		cm.addRecipe(r1);
 		assertEquals(r2.getName(),cm.editRecipe(0, r2));
+
 		// TID_10 Prüfen ob das Editieren der nicht vorhandener
 		// Rezepte funktioniert
 		assertNull(cm.editRecipe(2, r2));
@@ -174,7 +178,7 @@ public class CoffeeMakerTest extends TestCase {
 			cm.addInventory("4","-7","0","9");
 			cm.addInventory("4","7","-4","9");
 			cm.addInventory("4","7","0","-9");
-			fail("Units must be a positive integer");
+			fail("Hinzufügen von negativen Werten ist nicht fehlgeschlagen");
 		} catch (InventoryException e) {
 		}
 	}
