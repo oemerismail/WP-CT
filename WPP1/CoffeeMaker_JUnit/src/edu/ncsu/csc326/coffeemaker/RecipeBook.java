@@ -59,7 +59,7 @@ public class RecipeBook {
 	 * @return String
 	 */
 	public synchronized String deleteRecipe(int recipeToDelete) {
-		if (recipeArray[recipeToDelete] != null) {
+		if (recipeToDelete < recipeArray.length && recipeArray[recipeToDelete] != null) {
 			String recipeName = recipeArray[recipeToDelete].getName();
 			recipeArray[recipeToDelete] = new Recipe();
 			return recipeName;
@@ -76,7 +76,7 @@ public class RecipeBook {
 	 * @return String
 	 */
 	public synchronized String editRecipe(int recipeToEdit, Recipe newRecipe) {
-		if (recipeArray[recipeToEdit] != null && recipeArray[recipeToEdit].getName() == newRecipe.getName()) {
+		if (recipeToEdit < recipeArray.length && recipeArray[recipeToEdit] != null && recipeArray[recipeToEdit].getName() == newRecipe.getName()) {
 			String recipeName = recipeArray[recipeToEdit].getName();
 			newRecipe.setName("");
 			recipeArray[recipeToEdit] = newRecipe;
