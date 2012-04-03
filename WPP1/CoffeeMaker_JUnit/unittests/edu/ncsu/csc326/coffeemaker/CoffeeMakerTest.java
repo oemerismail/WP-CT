@@ -253,4 +253,26 @@ public class CoffeeMakerTest extends TestCase {
 		cm.makeCoffee(0, 50);
 		assertEquals(100,cm.makeCoffee(0, 100));
 	}
+
+
+	public void testOutOfBounds() {
+		// TID_23
+		try {
+			cm.deleteRecipe(Integer.MAX_VALUE);
+		} catch(ArrayIndexOutOfBoundsException e) {
+			fail("deleteRecipe throws ArrayIndexOutofBounds");
+		}
+
+		try {
+			cm.editRecipe(Integer.MAX_VALUE, r1);
+		} catch(ArrayIndexOutOfBoundsException e) {
+			fail("editRecipe throws ArrayIndexOutofBounds");
+		}
+
+		try {
+			cm.makeCoffee(Integer.MAX_VALUE, 0);
+		} catch(ArrayIndexOutOfBoundsException e) {
+			fail("makeCoffee throws ArrayIndexOutofBounds");
+		}
+	}
 }

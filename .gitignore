@@ -1,4 +1,6 @@
 
+*.pdf
+
 *.vpp~*
 
 # Added by gemignore. Snippet 'Global/OSX'
