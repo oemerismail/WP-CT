@@ -31,7 +31,7 @@ sowie die allgemeine Zuverlässigkeit des Systems überprüfen soll.
 
 * Statt `Add recipe` ist der erste Menüpunkt `Add a recipe`.
 * Statt `Purchase beverage` ist der sechste Menüpunkt `Make coffee`.
-* Es gibt einen zusätzlichen Punkt `Exit`, welcher in den Anforderungen 
+* Es gibt einen zusätzlichen Punkt `Exit`, welcher in den Anforderungen
     vorgesehen ist.
 
 ### Usability
@@ -55,8 +55,8 @@ sowie die allgemeine Zuverlässigkeit des Systems überprüfen soll.
 
 ### Usability
 
-* Die Meldung, dass ein Rezept nicht hinzugefügt werden konnte taucht erst auf, 
-    wenn man schon alle Eingabe getätigt hat. Die Meldung sollte vorher 
+* Die Meldung, dass ein Rezept nicht hinzugefügt werden konnte taucht erst auf,
+    wenn man schon alle Eingabe getätigt hat. Die Meldung sollte vorher
     erscheinen.
 * Der Benutzer sollte über das korrekte Eingabeformat für die Rezept-Attribute
     informiert werden.
@@ -163,3 +163,56 @@ sowie die allgemeine Zuverlässigkeit des Systems überprüfen soll.
 * Dem Benutzer wird kein Preis für das Getränk angezeigt
 * Den Benutzer sollte aufgefordert werden eine Zahl einzugeben, da er
     möglicherweise nichts mit dem Begriff `positive integer` anfangen kann.
+
+
+
+
+<!-- \newpage -->
+# Anomalien
+
+
+
+## Datenfluss-Analyse
+
+   public synchronized int makeCoffee(int recipeToPurchase, int amtPaid) {
+        // d(change);
+        int change = 0;
+
+        // r(recipeToPurchase);
+        if (getRecipes()[recipeToPurchase] == null) {
+
+            // d(change); r(atmPaid);
+            change = amtPaid;
+
+        // r(recipeToPurchase); r(atmPaid);
+        } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) {
+
+            // r(recipeToPurchase);
+            if (inventory.useIngredients(getRecipes()[recipeToPurchase])) {
+
+                // d(change); r(amtPaid); r(recipeToPurchase);
+                change = amtPaid - getRecipes()[recipeToPurchase].getPrice();
+            } else {
+
+                // d(change); r(amtPaid);
+                change = amtPaid;
+            }
+        } else {
+
+            // d(change); r(amtPaid);
+            change = amtPaid;
+        }
+
+        // r(change);
+        return change;
+    }
+
+Die Variable `change` weist sowohl eine `du` als auch eine `dd`-Anomalie auf.
+
+
+<!-- \newpage -->
+## Kontrollfluss-Graph
+
+Es folgt der Kontrollfluss-Graph der in der Datenfluss-Analyse analysierten Methode `makeCoffee`.
+
+![](FlowGraph)
