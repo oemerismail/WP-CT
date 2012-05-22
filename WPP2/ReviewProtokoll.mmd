@@ -216,3 +216,22 @@ Die Variable `change` weist sowohl eine `du` als auch eine `dd`-Anomalie auf.
 Es folgt der Kontrollfluss-Graph der in der Datenfluss-Analyse analysierten Methode `makeCoffee`.
 
 ![](FlowGraph)
+
+
+
+<!-- \newpage -->
+
+# Teststufen
+
+## Komponententest
+
+Die Komponententests wurden in der Praktikumsaufgabe 1 durchgeführt.
+
+## Integrationstest
+
+Beim Integrationstest wäre es vorstellbar, dass man den CoffeeMaker an die Hardware anbindet, welche in der Produktion vom Benutzer verwendet würde, um die Kaffee-Maschine zu steuern (e.g. Tastatur zur Eingabe, Display zur Ausgabe). Hier müsste man dann entsprechende Schnittstellen schreiben, welche Zugriff auf die einzelnen Funktionen über die Hardware ermöglichen, sowie eine Schnittstelle welche die Ausgaben des Java-Codes auf dem Display der Kaffee-Maschine anzeigen kann. Für diese Art von Test wäre noch keine vollständige Kaffee-Maschine notwendig.
+
+
+## Systemtest
+
+Für den Systemtest müsste nun die gesamte Kaffee-Maschine gebaut und der Java-Code installiert werden. Das Gesamt-System, bestehend aus Hardware und Software kann nun ausgiebig getestet und auf korrekte Funktionalität nach Spezifikation geprüft werden.
