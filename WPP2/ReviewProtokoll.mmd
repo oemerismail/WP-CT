@@ -229,13 +229,17 @@ Die Komponententests wurden in der Praktikumsaufgabe 1 durchgeführt.
 
 ## Integrationstest
 
-Beim Integrationstest wäre es vorstellbar, dass man den CoffeeMaker an die Hardware anbindet, welche in der Produktion vom Benutzer verwendet würde, um die Kaffee-Maschine zu steuern (e.g. Tastatur zur Eingabe, Display zur Ausgabe). Hier müsste man dann entsprechende Schnittstellen schreiben, welche Zugriff auf die einzelnen Funktionen über die Hardware ermöglichen, sowie eine Schnittstelle welche die Ausgaben des Java-Codes auf dem Display der Kaffee-Maschine anzeigen kann. Für diese Art von Test wäre noch keine vollständige Kaffee-Maschine notwendig.
+Im Integrationstest testen wir die einezlenen Software-Komponenten des `CoffeeMakers`. Diese werde sukzessive integriert, bis die Interaktion aller Komponenten erfolgreich getestet wurde. Für diesen Test ist folgende Struktur angedacht:
+
+1. Zuerst wird die Interaktion des `RecipeBook` mit dem `Recipe` getestet.
+2. Anschließend wird die `CoffeeMaker`-Komponente mit dem `RecipeBook` integriert.
+3. Schlussendlich wird das `Inventory` mit dem `CoffeeMaker` integriert.
+
 
 
 ## Systemtest
 
-Für den Systemtest müsste nun die gesamte Kaffee-Maschine gebaut und der Java-Code installiert werden. Das Gesamt-System, bestehend aus Hardware und Software kann nun ausgiebig getestet und auf korrekte Funktionalität nach Spezifikation geprüft werden.
-
+Der CoffeeMaker wird nun an die Hardware angebunden, welche in der Produktion vom Benutzer verwendet wird, um die Kaffee-Maschine zu steuern, sowie den Kaffee auszugeben. Hier müsste man dann entsprechende Schnittstellen schreiben, welche Zugriff auf die einzelnen Funktionen über die Hardware ermöglichen, sowie eine Schnittstelle welche die Ausgaben des Java-Codes auf dem Display der Kaffee-Maschine anzeigen kann. Das Gesamt-System, bestehend aus Hardware und Software kann nun ausgiebig getestet und auf korrekte Funktionalität nach Spezifikation geprüft werden.
 
 
 ## Teststrategien
@@ -251,9 +255,9 @@ Für Integrations- sowie Systemtest bietet sich das Anwendungsfall basiertes Tes
 <!-- \newpage -->
 ### Sequenz-Diagramm - Integrations-Test
 
-Das folgende Diagram beschreibt den Ablauf des Anwendungsfalls `Purchase Beverage` im Kontext des Integrations-Tests (d.h. es gibt einen Benutzer, eine Tastatur, das Programm sowie eine Ausgabe auf einem externen Display).
+Das folgende Diagram beschreibt den Integrations-Test zwischen `RecipeBook` und der `Recipe`-Klasse.
 
-![](sequence2)
+![](sequence4)
 
 <!-- \newpage -->
 ### Sequenz-Diagramm - System-Test
