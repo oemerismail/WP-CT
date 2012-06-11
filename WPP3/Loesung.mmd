@@ -1,0 +1,119 @@
+Title:				Review Aufgaben - Bookkeeper
+Subtitle:			Certified Tester Praktikum 3
+Author:				Jens Schaa, Lucas Jenss, Denis Fleischhauer
+ShortAuthor:		Schaa, Jenss, Fleischhauer
+UseHelvetica:		yes
+Base Header Level:	3
+latex input:		x3-assignment-preamble
+latex input:		x3-assignment-mmd-compat
+latex input:		x3-assignment-begin
+latex footer:		x3-assignment-end
+
+
+# 2. Code anomalies and dead code
+
+**File:** <!-- \path{src/de/harper_hall/keeper/spells/elemental/base/area_elemental_curses/AreaElementalCursesSpellList.java} -->
+
+<!--\vspace{3mm}-->
+
+The mentioned (and several other) files contain definitions for spells, weapons etc. used within the game. This is not an optimal solution, as it requires a lot of duplicate code. Every spell definition, for example, has the following structure:
+
+    addSpell(
+      new GenericSpellDescription(
+        ... lots of parameters ...
+      )
+    );
+
+Such a structure can be recreated very easily in a data format such as `JSON`:
+
+    [ // Array of spells
+        [ ... lots of parameters ...], // A single spell
+        ...
+        [ ... lots of parameters ...]
+    ]
+
+Outsourcing this data has the benefit of not being implementation dependant, that is, the data could easily be read and proccessed for different purposes without virtually any effort.
+
+
+<!--\vspace{1cm}-->
+**File:** <!--\path{src/de/harper_hall/keeper/tables/StatBonuses.java}-->
+
+<!--\vspace{3mm}-->
+The methods `getStatBonus` and `getDevPts` have exactly the same implementation!
+
+
+<!--\vspace{1cm}-->
+**File:** <!--\path{src/de/harper_hall/keeper/classes/SkillDefinition.java}-->
+<!--\vspace{3mm}-->
+
+The method with the signature `public Skill getSkill() throws SkillInvokationException` is defined twice within the class `SkillDefinition`, and it is not clear why. Also, their implementations only differ in a single line.
+
+
+
+# 5. Determine cyclomatic complexity
+
+Source of `de.harper hall.keeper.acid.weapons.GenericWeapon.startWeapon`. Long lines stripped, given that they are not relevant for cyclomatic complecity analysis.
+
+    01 private void startWeapon([...i]) throws SAXException {
+    02     String implementationClass = [...]
+    03
+    04     if ([...]) {
+    05         try {
+    06             tmpWeap = [...]
+    07         } catch (InstantiationException e) {
+    08             tmpWeap = null;
+    09             [...]
+    10             return;
+    11         } catch (IllegalAccessException e) {
+    12             tmpWeap = null;
+    13             [...]
+    14             return;
+    15         } catch (ClassNotFoundException e) {
+    16             tmpWeap = null;
+    17             [...]
+    18             return;
+    19         }
+    20     } else {
+    21         tmpWeap = new GenericWeapon();
+    22     }
+    23
+    24     if (tmpWeap instanceof DirectTableWeapon) {
+    25         DirectTableWeapon val = (DirectTableWeapon) tmpWeap;
+    26         String wTableName;
+    27
+    28         [...]
+    29
+    30         try {
+    31             val.setWTable([...]);
+    32         } catch (Exception e) {
+    33             [...]
+    34             tmpWeap = null;
+    35             return;
+    36         }
+    37
+    38         if (tmpWeap instanceof ParametrizedWeapon) {
+    39             ParametrizedWeapon pval = [...]
+    40
+    41             pval.setFumbleVal([...]);
+    42             pval.setCat([...]);
+    43         }
+    44     }
+    45 }
+
+
+The cyclomatic complexity analysis results in a complexity of
+
+    M = E - N + 2P = 28 - 22 + 2 * 1 = 8
+
+where
+
+    E = the number of edges of the graph
+    N = the number of nodes of the graph
+    P = the number of connected components (exit nodes)
+
+([Source: Wikipedia](http://en.wikipedia.org/wiki/Cyclomatic_complexity))
+
+<!-- \centerline{\includegraphics[keepaspectratio,width=\textwidth,height=\textheight]{cyclomaticComplexity.pdf}} -->
+
+
+
