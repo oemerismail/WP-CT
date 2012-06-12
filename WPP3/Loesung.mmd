@@ -328,3 +328,24 @@ The overall complexity of the application is relatively high, given that it has 
 * Overall complexity: 9
 * Comment quality: 6
 
+
+
+# Playing with Sonar
+
+* The most complex methods seems to be the constructor within `acid.WeaponTable` with a cyclomatic number of 31. The most complex class is `SkillDefinition`.
+
+---
+
+1. The code duplications detected by Sonar are not many. Apparently it only detects exact code duplications, which are mostly getters and setters in the case of Bookkeeper.
+
+2. LCOM4 creates a graph which indicates what class methods access which class fields. If the resulting graph is not connected (that is, there is more than one component), LCOM4 indicates that the refactoring should be considered.
+
+3. Sonar detects branch and line coverage (or statement coverage)
+
+4. The complexity of the `GenericWeapon` class (as calculated by Sonar) is 52, with an average method complexity of 2.7.
+
+5. Tests should be written covering many exception cases within `startWeapon`. The methods `startACMod()` and `getAllWeapons()` don't seem to tested at all.
+
+6. The overall code complexity of the application is, as previously stated, relatively high (9 out of 10). There are 46 classes that are at least twice as complex as the average class, the most complex class being more than 14 times as complex.
+
+7. Undocumented methods should definitely be documented. Sonar found 49 undocumented APIs. Also, the classes with the highest complexity, e.g. `SkillDefinition`, `KeeperCharacterBase` and `WeaponTable`, which are more than 8 times as complex as the average class, should be revised and possibly refactored.
