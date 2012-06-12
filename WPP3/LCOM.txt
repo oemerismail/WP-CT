@@ -1,0 +1,61 @@
+Klasse: CharCreatorTest
+Instanzvariablen: creator
+Methodenpaare:
+	loadStats()
+	checkTots() --> mit
+	
+	loadStats()
+	checkPots() --> mit
+
+	checkPots()
+	testCharacterCreation() --> mit
+	
+LCOM = 0-ohne - 3-mit = 0
+
+Klasse: KieperCharacterLoaderTest
+Instanzvariablen: keine
+Methodenpaare:
+	testLoadSampleCharacter()
+	testLoadNoClassSampleCharacter() --> ohne
+	
+LCOM = 1-ohne - 0-mit = 1
+
+Klasse: RaceBaseTest
+Instanzvariablen: keine
+Methodenpaare:
+	testRaceBaseInit()
+	testRaceValueDump() --> ohne
+	
+LCOM = 1-ohne - 0-mit = 1
+
+Klasse: AttackProcessTest
+Instanzvariablen: aragorn, baromir
+Methodenpaare:
+	setUp()
+	testInitialResolution() --> ohne
+	
+	setUp()
+	testAttackResolution() --> mit
+	
+	testInitialResolution()
+	testAttackResolution() --> ohne
+
+LCOM = 2-ohne - 1-mit = 1
+
+Klasse: KeeperCharacterBaseTest
+Instanzvariablen: 	lvl0Pies			lvl1Pies			lvl2Pies
+					lvl0CostExpert		lvl1CostExpert		lvl2CostExpert	
+					lvl0RatingExpert	lvl1RatingExpert	lvl2RatingExpert
+					rolls				character
+					
+Methodenpaare:
+	loadStats()
+	prepChar() --> ohne
+	
+	loadStats()
+	testGetWeaponCatsNotNull() --> ohne
+	
+	prepChar()
+	testGetWeaponCatsNotNull() --> ohne
+	
+LCOM = 3-ohne - 0-mit = 3
