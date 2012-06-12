@@ -1,4 +1,4 @@
-Title:				Review Aufgaben - Bookkeeper
+Title:				Review Excercise - Bookkeeper
 Subtitle:			Certified Tester Praktikum 3
 Author:				Jens Schaa, Lucas Jenss, Denis Fleischhauer
 ShortAuthor:		Schaa, Jenss, Fleischhauer
@@ -10,7 +10,7 @@ latex input:		x3-assignment-begin
 latex footer:		x3-assignment-end
 
 
-# 2. Code anomalies and dead code
+# Code anomalies and dead code
 
 **File:** <!-- \path{src/de/harper_hall/keeper/spells/elemental/base/area_elemental_curses/AreaElementalCursesSpellList.java} -->
 
@@ -49,8 +49,212 @@ The methods `getStatBonus` and `getDevPts` have exactly the same implementation!
 The method with the signature `public Skill getSkill() throws SkillInvokationException` is defined twice within the class `SkillDefinition`, and it is not clear why. Also, their implementations only differ in a single line.
 
 
+<!--\newpage-->
+# Testcases with coverage criteria
 
-# 5. Determine cyclomatic complexity
+
+## Timadorus Attack Graph
+
+<!-- \centerline{\includegraphics[keepaspectratio,width=\textwidth,height=\textheight]{TimadorusAttackGraph.pdf}} -->
+
+
+## Test cases
+
+Inputs specified in this order:
+
+1. Weapon
+2. Target
+3. Rolls
+
+---
+
+**In:**
+
+1. Sword,
+2. Dog,
+3. Fumble
+
+**Out:**
+Attacker stumble
+
+---
+
+**In:**
+
+1. Martial Art Fist Punch,
+2. Dog,
+3. Fumble
+
+**Out:**
+Attacker stumble
+
+---
+
+**In:**
+
+1. Sword,
+2. Dog,
+3. 2x Success
+
+**Out:**
+Dog revices wounds
+
+---
+
+**In:**
+
+1. Sword of Dog Slaying,
+2. Dog,
+3. Critical
+
+**Out:**
+Dog revices wounds
+
+---
+
+**In:**
+
+1. Sword of Dog Slaying,
+2. Fisch,
+3. Critical
+
+**Out:**
+Fisch revices wounds
+
+---
+
+**In:**
+
+1. Sword of Horse Slaying,
+2. Horse,
+3. 2x Critical
+
+**Out:**
+Horse revices wounds
+
+---
+
+**In:**
+
+1. Sword of Wale Slaying,
+2. Wale,
+3. 2x Critical
+
+**Out:**
+Wale revices wounds
+
+---
+
+**In:**
+
+1. Holy Sword,
+2. Dog,
+3. Critical
+
+**Out:**
+Dog revices wounds
+
+---
+
+**In:**
+
+1. Holy Sword,
+2. Minor Deamon,
+3. 2x Critical
+
+**Out:**
+Minor Deamon revices wounds
+
+---
+
+**In:**
+
+1. Holy Sword,
+2. Big Deamon,
+3. 2x Critical
+
+**Out:**
+Big Deamon revices wounds
+
+---
+
+**In:**
+
+1. Holy Sword,
+2. Boss Deamon,
+3. 2x Critical
+
+**Out:**
+Boss Deamon revices wounds
+
+# LCOM
+
+    Klasse: CharCreatorTest
+    Instanzvariablen: creator
+    Methodenpaare:
+        loadStats()
+        checkTots() --> mit
+
+        loadStats()
+        checkPots() --> mit
+
+        checkPots()
+        testCharacterCreation() --> mit
+
+    LCOM = 0-ohne - 3-mit = 0
+
+    Klasse: KieperCharacterLoaderTest
+    Instanzvariablen: keine
+    Methodenpaare:
+        testLoadSampleCharacter()
+        testLoadNoClassSampleCharacter() --> ohne
+
+    LCOM = 1-ohne - 0-mit = 1
+
+    Klasse: RaceBaseTest
+    Instanzvariablen: keine
+    Methodenpaare:
+        testRaceBaseInit()
+        testRaceValueDump() --> ohne
+
+    LCOM = 1-ohne - 0-mit = 1
+
+    Klasse: AttackProcessTest
+    Instanzvariablen: aragorn, baromir
+    Methodenpaare:
+        setUp()
+        testInitialResolution() --> ohne
+
+        setUp()
+        testAttackResolution() --> mit
+
+        testInitialResolution()
+        testAttackResolution() --> ohne
+
+    LCOM = 2-ohne - 1-mit = 1
+
+    Klasse: KeeperCharacterBaseTest
+    Instanzvariablen:   lvl0Pies            lvl1Pies            lvl2Pies
+                        lvl0CostExpert      lvl1CostExpert      lvl2CostExpert
+                        lvl0RatingExpert    lvl1RatingExpert    lvl2RatingExpert
+                        rolls               character
+
+    Methodenpaare:
+        loadStats()
+        prepChar() --> ohne
+
+        loadStats()
+        testGetWeaponCatsNotNull() --> ohne
+
+        prepChar()
+        testGetWeaponCatsNotNull() --> ohne
+
+    LCOM = 3-ohne - 0-mit = 3
+
+
+
+<!--\newpage-->
+# Determine cyclomatic complexity
 
 Source of `de.harper hall.keeper.acid.weapons.GenericWeapon.startWeapon`. Long lines stripped, given that they are not relevant for cyclomatic complecity analysis.
 
@@ -116,4 +320,11 @@ where
 <!-- \centerline{\includegraphics[keepaspectratio,width=\textwidth,height=\textheight]{cyclomaticComplexity.pdf}} -->
 
 
+
+# Application complexity and comment quality
+
+The overall complexity of the application is relatively high, given that it has many complex (cyclomatic number greater 5) and often very long (more than 40 lines) methods. The comment coverage is good, as far as we could determine it. However they could be more detailed, and they don't seem always be up to date.
+
+* Overall complexity: 9
+* Comment quality: 6
 
