@@ -1,0 +1,33 @@
+digraph {
+
+	"startWeapon" -> "02 - 03" -> 04;
+
+	04 -> 05; // first if - first path
+
+	05 -> 06 -> 22; // Try block - success
+
+	05 -> "07 - 09" -> "return"; // Catch 1st exception
+	05 -> "11 - 13" -> "return"; // Catch 2nd exception
+	05 -> "15 - 17" -> "return"; // Catch 3rd exception
+
+
+	04 -> 20 -> 21 -> 22; // first if - second path
+
+
+	22 -> 23 -> 24; // second if
+
+	24 -> "25 - 30" -> 31;
+
+	31 -> 37 -> 38;
+
+	31 -> 32 -> 33 -> 34 -> "return";
+
+	38 -> "39 - 40 - 41 - 42" -> "return"
+
+	38 -> "return";
+
+
+	24 -> "return"; // second if - else path (non existant, exits method)
+
+	"return";
+}
