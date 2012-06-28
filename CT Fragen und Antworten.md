@@ -2,8 +2,6 @@
 
 ## Kapitel 2
 
-### Fragen
-
 Folgende Fragen sollten Sie jetzt beantworten können
 • Definieren Sie die Begriffe Fehlerwirkung, Fehlerzustand, Fehlhandlung.
 
@@ -52,8 +50,6 @@ Folgende Fragen sollten Sie jetzt beantworten können
 > Blindheit gegenüber eigenen Fehlern. Anforderungen die falsch verstanden werden können nicht richtig getestet werden.
 
 ## Kapitel 3
-
-### Fragen
 
 • Erläutern Sie die einzelnen Phasen des allgemeinen V-Modells.
 
@@ -115,27 +111,27 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 > **Top-down-Integration**
 	
-	>> Der Test beginnt mit Komponente die andere Aufruf, aber selbst nicht aufgerufen wird. Sukzessiv werden Komponenten niedriger Systemschichten dazu integriert.
+>> Der Test beginnt mit Komponente die andere Aufruf, aber selbst nicht aufgerufen wird. Sukzessiv werden Komponenten niedriger Systemschichten dazu integriert.
 
-	>> Vorteil: Es werden nur einfache Treiber benötigt. Nachteil: Untere Komponenten müssen durch Platzhalter ersetzt werden was sehr aufwendig sein kann.
+>> Vorteil: Es werden nur einfache Treiber benötigt. Nachteil: Untere Komponenten müssen durch Platzhalter ersetzt werden was sehr aufwendig sein kann.
 
 > **Bottom-up-Integration**
 
-	>> Test beginnt mit Elementaren Komponenten des Systems, die keine weiteren Komponenten aufrufen (außer Funktionen des OS). Größere Teilsysteme werden sukzessiv aus getesteten Konponenten zusammen gesetzt.
+>> Test beginnt mit Elementaren Komponenten des Systems, die keine weiteren Komponenten aufrufen (außer Funktionen des OS). Größere Teilsysteme werden sukzessiv aus getesteten Konponenten zusammen gesetzt.
 
-	>> Vorteil: Keine Platzhalter notwendig. Nachteil: Übergeordnete müssen durch Treiber simuliert werden.
+>> Vorteil: Keine Platzhalter notwendig. Nachteil: Übergeordnete müssen durch Treiber simuliert werden.
 
 > **Ad-Hoc-Integration**
 
-	>> Zufällige Reihenfolge oder in Reihenfolge ihrer Fertigstellung. Sobald eine Komponente ihren Komponententest absolviert hat wird si mit einer bereits getesteten Komponente integriert.
+>> Zufällige Reihenfolge oder in Reihenfolge ihrer Fertigstellung. Sobald eine Komponente ihren Komponententest absolviert hat wird si mit einer bereits getesteten Komponente integriert.
 
-	>> Vorteil: Zeitgewinn, jeder Baustein wird frühesmöglich in seine passende Umgebung integriert. Nachteil: Es werden sowohl Treiber als auch Platzhalter benötigt.
+>> Vorteil: Zeitgewinn, jeder Baustein wird frühesmöglich in seine passende Umgebung integriert. Nachteil: Es werden sowohl Treiber als auch Platzhalter benötigt.
 
 > **Big-Bang-Integration**
 
-	>> Wenn alles fertig ist wird es alles zusammen integriert.
+>> Wenn alles fertig ist wird es alles zusammen integriert.
 
-	>> Nachteile: sehr lange Wartezeit. Schlechte zuordnung der Fehlerwirkungen.
+>> Nachteile: sehr lange Wartezeit. Schlechte zuordnung der Fehlerwirkungen.
 
 • Welche Gründe sprechen dafür, Tests in einer separaten Testinfrastruktur durchzuführen?
 
@@ -178,8 +174,6 @@ Folgende Fragen sollten Sie jetzt beantworten können
 > funktionaler Test, nicht-funktionaler Test, strukturorientierter Test, änderungsorientierter Test.
 
 ## Kapitel 4
-
-### Fragen
 
 • Was sind die grundlegenden Schritte, die bei einem Review durchzuführen sind. (Bitte beschreiben!)
 
@@ -261,8 +255,6 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 ## Kapitel 5 - Teil 1
 
-### Fragen
-
 • Welches ist der wesentliche Unterschied zwischen dynamischen und statischen Tests.
 
 > Programme sind statische Beschreibung von dynamischen Prozessen. Statische Test prüfen die Testobjekte an sich (informele Texte, Modelle, Programmcode). Dynamische Teste prüfen die durch Interpretation einer beschribung (Testobjekt) resultierenden Prozesse.
@@ -341,41 +333,87 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 ## Kapitel 5 - Teil 2
 
-### Fragen
-
 • Was bedeutet der Begriff Anweisungsüberdeckung?
+
+> Der Grad der Anweisungsüberdeckung gibt an wie viel Prozent der im Programmcode enthaltenden Anweisungen ausgeführt werden. Bei einem Kontrollflussgrafen erreicht man 100% Anweisungsüberdeckung wenn man jeden Knoten mindestens einmal besucht.
+
+> Die Anweisungsüberdeckung ist eher Schwach, da so 'Entscheidungs'-Fehler in Schleifen und Entscheidungen oder gar fehlende Anweisungen nicht entdeckt werden.
+
+> 100% Anweisungsüberdeckung ist erstrebenswert aber nicht immer erreichbar.
 
 • Worin unterscheiden sich Anweisungs- und Entscheidungsüberdeckung?
 
+> Entscheidungsüberdeckung betrachtet in erster Linie die Entscheidungen die zu allen Möglichkeiten ausgeführt werden sollen.
+
+> Im Kontrollflussgraphen bedeutet das das man jede Kante mindestens einmal besuchen muss.
+
+> Die Entscheidungsüberdeckung ist ein starkes Kriterium.
+
+> Bei 100% Entscheidungsüberdeckung hat man auch automatisch 100% Zweig- und Anweisungsüberdeckung.
+
 • Nach welcher Formel wird die erreichte Anweisungsüberdeckung berechnet?
+
+> Anzahl der durchlaufenden Anweisungen / Gesamte Anweisungen * 100 %.
 
 • Wozu dient die Instrumentierung?
 
+> 
+
 • Exkurs: Worauf zielt die Bedingungsüberdeckung ab?
+
+> Wenn es in Enscheidungen nicht nur einfache Ausdrücke stehen sondern viele mit logischen Verknüpfungen dazwischen kann das schnell sehr komplex werden.
 
 • Exkurs: Worin unterscheiden sich die einfache Bedingungsüberdeckung und die Mehrfachbedingungsüberdeckung?
 
+> Bei der Einfachen Bedingungsüberdeckung wird jede Teilbedingung in jeder Entscheidung mindestens einmal mit dem ert True und False ausgeführt.
+
+> Die Mehrfachbedingungsüerdeckung fordert die ausführung aller Teilbedingungen in allen Kombinationen.
+
 • Was ist unter erfahrungsbasierten (exploratives) Testen zu verstehen?
+
+> 
 
 ## Kapitel 6
 
-### Fragen
-
 • Welche grundsätzlichen Modelle einer Aufgabenteilung zwischen Entwicklung und Test lassen sich unterscheiden?
+
+
 • Welches sind die typischen Aufgaben der Rollen Testmanager und Tester?
+
+
 • Nennen Sie zwei Verfahren zur Schätzung des Testaufwands
+
+
 • Welche Arten von Metriken zur Überwachung des Testfortschritts lassen sich unterscheiden?
+
+
 • Welche Informationen soll ein Teststatusbericht enthalten?
+
+
 • Welches sind die Aktivitäten des Risikomanagements?
+
+
 • Wie berechnet man ein Risiko?
+
+
 • Was sind typische Produkt- und Projektrisiken?
 
-## ?
+## Kapitel 7
 
 • Welche Daten soll eine Fehlermeldung enthalten?
+
+
 • Was ist der Unterschied zwischen Fehlerpriorität und Fehlerklasse?
+
+
 • Wozu wird ein Fehlerstatusmodell benötigt?
+
+
 • Welche Aufgabe hat ein Änderungskontrollausschuss?
+
+
 • Welche Anforderungen aus Sicht des Tests stellen sich an das Konfigurationsmanagement?
+
+
 • Welche grundsätzlichen Arten von Normen und Standards lassen sich unterscheiden?
 
