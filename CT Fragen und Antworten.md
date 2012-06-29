@@ -495,22 +495,42 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 > Technische Aspekte (Anforderung zu ungenau, Unzureichende Qualität, verspätete Lieferung).
 
-## Kapitel 7
-
 • Welche Daten soll eine Fehlermeldung enthalten?
 
+> Testobjekt, Identifikation, Status, Fehlerklasse, Priorität, Testumgebung, Repoduzieren und Lokalisieren, Name des Testers.
 
 • Was ist der Unterschied zwischen Fehlerpriorität und Fehlerklasse?
 
+> Die Fehlerklasse gibt die Ausirkungen des Fehlers auf das Produkt an bzw wie sehr es die Funktionalität des Produktes beeinflusst.
+
+> Fehlerpriorität sagt wie dringend diese Fehler behoben werden müssen (nächster Patch, nächste Version, bei Gelegenheit).
 
 • Wozu wird ein Fehlerstatusmodell benötigt?
 
+> Jeder Fehler muss zügig bearbeitet werden. Um dies für das Projektmanagement ersichtlich zu machen durchläuft jeder Fehler mehrere Stati welche genau Aufkunft geben.
 
 • Welche Aufgabe hat ein Änderungskontrollausschuss?
 
+>
 
 • Welche Anforderungen aus Sicht des Tests stellen sich an das Konfigurationsmanagement?
 
+> Tests und Korrekturen lassen sich in Verbindung setzten.
+
+> Rückverfolgbarkeit der Testprozesse und Korrekturen.
+
+> Reproduzieren von Fehlern.
 
 • Welche grundsätzlichen Arten von Normen und Standards lassen sich unterscheiden?
 
+> **Firmenstandards**
+
+> **Best Practises**
+
+> **Qualitätsmanamegentstandards**
+
+> **Branchenstandards**
+
+> **Softwareteststandards**
+
+> **Technologiestandards**
