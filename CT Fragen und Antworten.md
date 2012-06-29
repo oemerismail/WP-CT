@@ -534,3 +534,124 @@ Folgende Fragen sollten Sie jetzt beantworten können
 > **Softwareteststandards**
 
 > **Technologiestandards**
+
+## Kapitel 7
+
+• Welche Typen von Testwerkzeugen werden unterschieden?
+
+> 
+
+• Was ist der Zweck der Werkzeugunterstützung für den Test?
+
+> 
+
+• Was bedeutet es, wenn ein Testwerkzeug intrusiv ist?
+
+> Intrusive Veränder oder beeinflussen das Verhalten des Testobjektes. (Untersuchungseffekt).
+
+• Welche grundlegenden Funktionen werden den Testmanagementwerkzeugen zugeschrieben?
+
+> 
+
+• Welche grundlegenden Funktionen werden den Fehler- und Abweichungsmanagementwerkzeugen zugeschrieben?
+
+> Manchmal müssen sehr viele Fehler verwaltet und kontrolliert werden. Diese Werkzeuge helfen einem die Fehler auch durch die Zeit hindurch zu verfolgen.
+
+• Welche typische Funktionalität bieten Werkzeuge für die Unterstützung des Reviewprozesses an?
+
+> Verwaltung der Dokumente.
+
+> Überprüfung über die Einhaltung von Richtlinien.
+
+> Unterstützung des Meetings.
+
+• Welche typischen Charakteristika des Programmcodes können mit Hilfe von Werkzeugen zur statischen Analyse analysiert werden?
+
+> Strukurelle Eigenschaften (Zyklomatische Zahl). 
+
+> Datenflussanomalien.
+
+> Programmierkonventionen.
+
+> Koventionen zur sicheren Programmierung.
+
+> Architekturprüfung und Visoalisierung.
+
+> Klonerkennung (doppelter Code).
+
+> Zykluserkennung.
+
+• Welche Typen von Testdatengeneratoren werden unterschieden?
+
+> **Datenbankbasiert**
+
+> Analysiert Datenbankschema und generiert daraus Daten für Testfälle.
+
+> **Codebasiert**
+
+> **Schnittstellenbasiert**
+
+> **Spezifikationsbasiert**
+
+> Eignet sich nur wenn dei Spezifikation in formaler Form vorliegt.
+
+• Welche unterschiedlichen Ansätze zur Automatisierung der Testdurchführung werden unterschieden?
+
+> **Capture & Replay**
+
+> Benutzereingaben werden aufgezeichnet und später noch einmal abgespielt.
+
+> **Datengetriebener Ansatz**
+
+> Testeingaben per Tabelle die eingelesen werden kann und die unabhängig vom zu testenden System ist.
+
+> **Schlüsselwortbasierter Ansatz**
+
+> Tabellenblatt enthält zusätzlich noch Schlüsselwörter welche als eigene 'Testsprache' dienen.
+
+• Welche Werkzeuge sind für die Unterstützung der Entwickler beim Komponenten- bzw. Integrationstest geeignet?
+
+> Integrationstest: Monitore, Treiber und Stubs.
+
+> Werkzeuge zur Statischen Analyse.
+
+> Modellierungswerkzeuge.
+
+> Testdatengenerator und -editor.
+
+> Testrahmen.
+
+> Werkzeuge zur Überdeckungsmessung.
+
+> Dynamische Analysewerkzeuge.
+
+• Welche Vorteile und Risiken sind mit einer Werkzeugeinführung verbunden?
+
+> Pro: Einsparung von Ressourcen durch effiziente Bearbeitung. Standartisierung der Testdokumentation. Transparenz des Testprozesses.
+
+> Con: Unrealistische Erwartungen. Intial ist einarbeitung notwendig. Prozesse müssen angepasst werden. Wartung der anpassung. Blindes vertrauen in das Werkzeug. Das Werkzeug wird vielleicht nicht mehr weiter entwickelt oder korrigiert. Kein Support.
+
+• Welche Tätigkeiten spielen bei der Einführung eines Testwerkzeugs eine Rolle?
+
+> Auswahl einer Teststufe für die man ein Werkzeug einführen möchte (Reihenfolge beachten).
+
+> Überprüfend er Wirtschaftlichkeit.
+
+> Marktstudie und Werkzeugdemos.
+
+> Evaluierung der Werkzeugwahl (Proof of Concept).
+
+> 
+
+• Welche sind die Ziele eines Pilotprojektes im Rahmen der Einführung eines Testwerkzeugs?
+
+> Genaueres kennenlernen des Wekzeuges.
+
+> Analyse inwieweit das Werkzeug mit den bestehenden Werkzeugen zusammen arbeitet.
+
+> Ermittlung des Schulungsbedarfs.
+
+> Entscheidungen über Standatisierungen wie zB Namenskonventionen.
+
+
+
