@@ -371,32 +371,129 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Was ist unter erfahrungsbasierten (exploratives) Testen zu verstehen?
 
-> 
+> Tests werden aufgrund der Erfahrung und der Intuition des Testers entwickelt. Dabei kann man auch Listen mit häufig vorkommenden Fehlern verwenden.
 
-## Kapitel 6
+> Das testen geschied mehr oder mindet willkürlich ohne fest spezifiziere Soll-Werte
+
+> Wenn nicht genug Dokumentatuin für das Programm zur verfügung steht kann es per 'exploration' erkundet werden.
+
+## Kapitel 6 (Kommt nicht in Dai's Klausur vor!)
 
 • Welche grundsätzlichen Modelle einer Aufgabenteilung zwischen Entwicklung und Test lassen sich unterscheiden?
 
+> Unabhängige Testen sind unvoreigenommen und sehen dadurch andere Fehlermöglichkeiten. Es können auch falsche Annahmen was die Anforderungen angeht entdeckt werden.
+
+> Verschiedene Modelle:
+
+> Ein Entwickler ist nur für das Testen da.
+
+> Die Entwickler testen ihren Code gegenseitig.
+
+> Unabhängiges Testteam.
+
+> Für spezielle Testziele, spezielle Tester.
+
+> Externe Organisation.
 
 • Welches sind die typischen Aufgaben der Rollen Testmanager und Tester?
 
+> **Testmanager**
+
+> Testrichtlinien und eine Teststrategie erstellen.
+
+> Planung der Tests, Auswahl der Metriken, festlegen was automatisiert werden kann.
+
+> Überwachung und Steuerung.
+
+> Termin festlegung
+
+> **Tester**
+
+> Dokumente hinsichtlich der prüfbarkeit analysieren, prüfen und bewerten.
+
+> Testspezifikation.
+
+> Implementierung Testumgebung.
+
+> Ausarbeitung von Testdaten.
+
+> Durchführung der Tests.
 
 • Nennen Sie zwei Verfahren zur Schätzung des Testaufwands
 
+> Der Testaufwand hängt von vielen Dingen ab: Charakteristiken des Produktes, wie zB die Güte der Dokumentation, die größe und die Testbarkeit.
+
+> Merkmale des Entwicklungsprozesses.
+
+> Ergebnisse der Tests.
+
+> **Expertenschätzung**
+
+> Ein oder mehrere Experten geben ihre (möglichst) Objektive Meinung über die einzelnen Komponenten ab. Dies kann schriftlich Formal oder durch Gruppensitzungen stattfinden.
+
+> **Analogieschätzung**
+
+> Man vergleicht das Projekt mit bereits abgeschlossenen Projekten und kann über diese Relation den ungefähren Aufwand abschätzen.
 
 • Welche Arten von Metriken zur Überwachung des Testfortschritts lassen sich unterscheiden?
 
+> **Testfallbasierte Metriken**
+
+> Anzahl der durchgeführten/geplanten und bestandenden/fehlgeschlagenen Tests.
+
+> **Testobjektbasierte Metriken**
+
+> Testabdeckung der Anforderungen, Risiken oder des Codes.
+
+> **Kostenbasierte Metrik**
+
+> Vergleichen der Kosten für das Auffinden des nächsten Fehlers und den nächsten Testdurchlauf.
+
+> Weitere Kriterien können sein:
+
+> Überdekungsmaße, Schätzungen der verbleibenden Fehlerdichte. Umfang der verbleibenden Risiken und Termin der Auslieferung.
 
 • Welche Informationen soll ein Teststatusbericht enthalten?
 
+> Was getestet wurde, Teststufe, Datum etc.
+
+> Testfortschritt.
+
+> Status der Fehler.
+
+> Risiken.
+
+> Ausblick.
+
+> Gesamtbewertung.
 
 • Welches sind die Aktivitäten des Risikomanagements?
 
+> Ermitteln des Risikokontestes.
+
+> Risikoidentifikation.
+
+> Risikoanalyse und -priorisierung.
+
+> Risikosteuerung und -bewältigung.
+
+> Risikoüberprüfung und -überwachung.
 
 • Wie berechnet man ein Risiko?
 
+> Die Höhe eines Risikos ergbit sich aus der Wahrscheinlichkeit des Eintretens und aus dem damit verbundenen Schaden.
+
+> R = W * S.
 
 • Was sind typische Produkt- und Projektrisiken?
+
+> Lieferaspekte (versagen eine dritten Partei).
+
+> Organisatorische Aspekte (Qualifikation, Mitarbeiterngpässe).
+
+> Politische Aspekte (Kommunikationsprobleme, nicht angemessende Haltung, Nicht Nutzen von Erkenntnissen).
+
+> Technische Aspekte (Anforderung zu ungenau, Unzureichende Qualität, verspätete Lieferung).
 
 ## Kapitel 7
 
