@@ -17,17 +17,17 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Erläutern Sie den Unterschied zwischen Testen und Debugging.
 
-> 
+> Testen ist eine präventive Massnahme um Fehlerzustände aufzudecken. Beim Debugging hingegen versucht man einen Fehlerzustand zu finden, welcher eine bekannte Fehlerwirkungen hervorruft.
 
 • Definieren Sie die Begriffe Verifizierung und Validierung.
 
-> Validierung - Erfüllt das Entwicklungsergebnis die individuellen Anforderungen.
+> Validierung - Erfüllt das Entwicklungsergebnis die individuellen Anforderungen. - Haben wir das **richtige System** gebaut?
 
-> Verifizierung - Erfüllen die Ergebnisse der Entwicklungsphasen die Vorgaben der Dokumente?
+> Verifizierung - Erfüllen die Ergebnisse der Entwicklungsphasen die Vorgaben der Dokumente? - Haben wir das System **richtig** gebaut?
 
 • Erläutern Sie, warum jeder Test eine stichprobenartige Prüfung ist.
 
-> 
+> Tests sind deshalb nur Stichproben, da man immer bestimmte Werte testet, bei deinen man Fehler vermutet (oder zufällige Werte). Exhaustive Testing (erschöpfendes Testen) in den meisten Fällen unmöglich, da die Wertebereich zu groß sind (kombinatorische Explosion).
 
 • Nennen Sie die Hauptmerkmale der Softwarequalität nach ISO 9126.
 
@@ -35,7 +35,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Definieren Sie den Begriff Zuverlässigkeit eines Systems.
 
-> 
+>
 
 • Erläutern Sie die Hauptaktivitäten des fundamentalen Testprozesses.
 
@@ -53,7 +53,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Erläutern Sie die einzelnen Phasen des allgemeinen V-Modells.
 
-> Anforderungsdefinition: 
+> Anforderungsdefinition:
 
 > funktionaler Systementwurf:
 
@@ -91,7 +91,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Begründen Sie, warum Verifizierung sinnvoll ist, auch wenn eine sorgfältige Validierung stattfindet (und umgekehrt).
 
-> 
+>
 
 • Charakterisieren Sie die typischen Testobjekte im Komponententest.
 
@@ -110,7 +110,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 • Welche Integrationsstrategien lassen sich unterscheiden?
 
 > **Top-down-Integration**
-	
+
 >> Der Test beginnt mit Komponente die andere Aufruf, aber selbst nicht aufgerufen wird. Sukzessiv werden Komponenten niedriger Systemschichten dazu integriert.
 
 >> Vorteil: Es werden nur einfache Treiber benötigt. Nachteil: Untere Komponenten müssen durch Platzhalter ersetzt werden was sehr aufwendig sein kann.
@@ -123,7 +123,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 > **Ad-Hoc-Integration**
 
->> Zufällige Reihenfolge oder in Reihenfolge ihrer Fertigstellung. Sobald eine Komponente ihren Komponententest absolviert hat wird si mit einer bereits getesteten Komponente integriert.
+>> Zufällige Reihenfolge oder in Reihenfolge ihrer Fertigstellung. Sobald eine Komponente ihren Komponententest absolviert hat wird sie mit einer bereits getesteten Komponente integriert.
 
 >> Vorteil: Zeitgewinn, jeder Baustein wird frühesmöglich in seine passende Umgebung integriert. Nachteil: Es werden sowohl Treiber als auch Platzhalter benötigt.
 
@@ -137,7 +137,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 > Man kann so Monitore und Treiber einbauen.
 
-> Systemtest werden um kosten zu sparen der Systemtest in der Produktivumgebung durchgeführt.
+> Systemtests werden um kosten zu sparenin der Produktivumgebung durchgeführt.
 
 • Erläutern Sie anforderungsbasiertes Testen.
 
@@ -153,7 +153,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Was sind die Unterscheidungsmerkmale?
 
-> 
+>
 
 • Worin unterscheiden sich Fehlernachtest und Regressionstest?
 
@@ -161,11 +161,11 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • In welcher Projektphase nach allgemeinem V-Modell sollte das Testkonzept erstellt werden?
 
-> 
+>
 
 • Was sind die Ziele von Fehlernach- und Regressionstest?
 
-> Fehlernachtest: nachprüfen ob Fehler nach Fehlerkorrektur immer noch auftauchen. 
+> Fehlernachtest: nachprüfen ob Fehler nach Fehlerkorrektur immer noch auftauchen.
 
 > Regressionstest: ob bei Änderungen andere Programmteile beeinträchtigt werden oder nach einer Änderung vorher Maskierte fehler auftauchen.
 
@@ -193,7 +193,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 > **Informelles Review** - Kein formaler Prozess, meist einzeln. Vier-Augen-Prinziep.
 
-> **Walkthrough** - Der Autor präsentiert das Dokument den Gutachtern. Eher keine Vor- und Nachbereitung, keine Kontrolle. Es werden einzelne Beispiele durchgespielt. Das ganze ist eher um Unklarheiten und Denkfehler in schriftlichen Dokumenten zu finden. 
+> **Walkthrough** - Der Autor präsentiert das Dokument den Gutachtern. Eher keine Vor- und Nachbereitung, keine Kontrolle. Es werden einzelne Beispiele durchgespielt. Das ganze ist eher um Unklarheiten und Denkfehler in schriftlichen Dokumenten zu finden.
 
 > **Technisches Review** - Ziel: Überinstimmung des Dokumentes mit der Spezifikation. Viel Vorbereitung. Kann sehr formal sein. Diskussion, Entscheidungen, Alternativen bewerten und technische Probleme lösen.
 
@@ -221,7 +221,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Wie stehen statische Analyse und Reviews in Zusammenhang?
 
-> Sie stehen in engem Zusammenhang. Wird vor dem Review eine statische Analyse angewandt könenn bereits eien Anzahl von Fehlern und Unstimmigkeiten gefunden werden. Dadurch kann die Arbeit für das Review Team reduziert werden. Außederm sind werkzeuggestützte statische Analysen billiger.
+> Sie stehen in engem Zusammenhang. Wird vor dem Review eine statische Analyse angewandt könenn bereits eien Anzahl von Fehlern und Unstimmigkeiten gefunden werden. Dadurch kann die Arbeit für das Review Team reduziert werden. Außederm sind werkzeuggestützte statische Analysen günstiger.
 
 • Warum kann die statische Analyse nicht alle in einem Programm enthaltenen Fehlerzustände aufdecken?
 
@@ -229,7 +229,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Welche Arten von Datenflussanomalien werden unterschieden?
 
-> **ur** - Ein undefineirter Wert wird gelesen.
+> **ur** - Ein undefinierter Wert wird gelesen.
 
 > **du** - Die Variable erhält einen Wert der alledings ungültig wird ohne das er benutzt wird.
 
@@ -357,7 +357,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Wozu dient die Instrumentierung?
 
-> 
+>
 
 • Exkurs: Worauf zielt die Bedingungsüberdeckung ab?
 
@@ -539,11 +539,11 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Welche Typen von Testwerkzeugen werden unterschieden?
 
-> 
+>
 
 • Was ist der Zweck der Werkzeugunterstützung für den Test?
 
-> 
+>
 
 • Was bedeutet es, wenn ein Testwerkzeug intrusiv ist?
 
@@ -551,7 +551,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Welche grundlegenden Funktionen werden den Testmanagementwerkzeugen zugeschrieben?
 
-> 
+>
 
 • Welche grundlegenden Funktionen werden den Fehler- und Abweichungsmanagementwerkzeugen zugeschrieben?
 
@@ -567,7 +567,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 • Welche typischen Charakteristika des Programmcodes können mit Hilfe von Werkzeugen zur statischen Analyse analysiert werden?
 
-> Strukurelle Eigenschaften (Zyklomatische Zahl). 
+> Strukurelle Eigenschaften (Zyklomatische Zahl).
 
 > Datenflussanomalien.
 
@@ -641,7 +641,7 @@ Folgende Fragen sollten Sie jetzt beantworten können
 
 > Evaluierung der Werkzeugwahl (Proof of Concept).
 
-> 
+>
 
 • Welche sind die Ziele eines Pilotprojektes im Rahmen der Einführung eines Testwerkzeugs?
 
